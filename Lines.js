@@ -102,8 +102,10 @@ class Point {
                 checkForUnsafeConnections()
 
                 //connect to each point the other point was connected to
-                for (const connection of point.connections)
+                for (const connection of point.connections) {
                     this.connect(connection)
+                    connection.disconnect(point)
+                }
 
                 checkForUnsafeConnections()
 
